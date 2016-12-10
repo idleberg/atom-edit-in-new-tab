@@ -1,6 +1,13 @@
 {CompositeDisposable} = require 'atom'
 
 module.exports = EditInNewTab =
+  config:
+    ignoreScope:
+      title: "Ignore Scope"
+      description: "Don't set the current scope in target tab"
+      type: "boolean"
+      default: false
+      order: 1
   subscriptions: null
 
   activate: (state) ->
@@ -13,18 +20,20 @@ module.exports = EditInNewTab =
   deactivate: ->
     @subscriptions.dispose()
 
-  editInNewTab: ->
+  editInNewTab: () ->
     return unless editor = atom.workspace.getActiveTextEditor()
 
     scopeName = editor.getGrammar().scopeName
-    selection = editor.getLastSelection().getText()
+    selection = editor.getLastSelection()
+    text = selection.getText()
 
-    unless selection.length > 0
+    unless text.length > 0
       return atom.beep()
 
     atom.workspace.open()
-      .then (editor) ->
-        editor.setText(selection)
-        editor.setGrammar(atom.grammars.grammarForScopeName(scopeName))
+      .then (newTab) ->
+        newTab.setText(text)
+        unless atom.config.get('edit-in-new-tab.ignoreScope') is true
+          newTab.setGrammar(atom.grammars.grammarForScopeName(scopeName))
       .catch (error) ->
         atom.notifications.addError(error, dismissable: true)
