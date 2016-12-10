@@ -8,6 +8,10 @@
 
 Opens the current selection in a new tab. Based on an idea by [Lea Verou](https://twitter.com/LeaVerou/status/807287092493553665).
 
+![Screenshot](https://raw.github.com/idleberg/atom-edit-in-new-tab/master/screenshot.gif)
+
+*Screenshot of NSIS in Atom with [Hopscotch](https://atom.io/themes/hopscotch) theme*
+
 ## Installation
 
 Install `edit-in-new-tab` from Atom's [Package Manager](http://flight-manual.atom.io/using-atom/sections/atom-packages/) or the command-line equivalent:
