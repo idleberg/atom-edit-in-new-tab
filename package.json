@@ -15,7 +15,7 @@
   "activationCommands": {
     "atom-workspace": [
       "selection:edit-in-new-tab",
-      "selection:move-to-new-tab"
+      "selection:cut-and-edit-in-new-tab"
     ]
   },
   "repository": {

@@ -22,19 +22,19 @@ module.exports = EditInNewTab =
           title: "Auto-indent"
           description: "Indents all inserted text appropriately"
           type: "boolean"
-          default: false
+          default: true
           order: 3
         autoIndentNewline:
           title: "Auto-indent New Line"
           description: "Indent newline appropriately"
           type: "boolean"
-          default: false
+          default: true
           order: 4
         autoDecreaseIndent:
           title: "Auto-decreate Indent"
           description: "Decreases indent level appropriately (for example, when a closing bracket is inserted)"
           type: "boolean"
-          default: false
+          default: true
           order: 5
         normalizeLineEndings:
           title: "Normalize Line Endings"
@@ -49,7 +49,7 @@ module.exports = EditInNewTab =
 
     # Register commands
     @subscriptions.add atom.commands.add 'atom-workspace', 'selection:edit-in-new-tab': => @editInNewTab(false)
-    @subscriptions.add atom.commands.add 'atom-workspace', 'selection:move-to-new-tab': => @editInNewTab(true)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'selection:cut-and-edit-in-new-tab': => @editInNewTab(true)
 
   deactivate: ->
     @subscriptions.dispose()
