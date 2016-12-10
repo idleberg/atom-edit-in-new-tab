@@ -8,12 +8,9 @@
     "url": "http://github.com/idleberg"
   },
   "keywords": [
-    "conversion",
-    "convert",
-    "sublime text",
-    "textmate",
-    "visual studio code",
-    "vscode"
+    "tab",
+    "new tab",
+    "selection"
   ],
   "activationCommands": {
     "atom-workspace": [
@@ -22,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/idleberg/atom-atomizr.git"
+    "url": "git+https://github.com/idleberg/atom-edit-in-new-tab.git"
   },
   "main": "./lib/edit-in-new-tab",
   "engines": {
