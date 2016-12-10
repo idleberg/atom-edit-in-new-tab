@@ -48,12 +48,13 @@ module.exports = EditInNewTab =
     @subscriptions = new CompositeDisposable
 
     # Register commands
-    @subscriptions.add atom.commands.add 'atom-workspace', 'selection:edit-in-new-tab': => @editInNewTab()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'selection:edit-in-new-tab': => @editInNewTab(false)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'selection:move-to-new-tab': => @editInNewTab(true)
 
   deactivate: ->
     @subscriptions.dispose()
 
-  editInNewTab: () ->
+  editInNewTab: (cutSelection) ->
     return unless editor = atom.workspace.getActiveTextEditor()
 
     selection = editor.getLastSelection()
@@ -64,6 +65,9 @@ module.exports = EditInNewTab =
 
     unless target.text.length > 0
       return atom.beep()
+
+    if cutSelection is true
+      selection.delete()
 
     atom.workspace.open()
       .then (newTab) ->

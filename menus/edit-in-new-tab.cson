@@ -4,4 +4,8 @@
       command: 'selection:edit-in-new-tab'
       label: 'Edit in new Tab'
     }
+    {
+      command: 'selection:move-to-new-tab'
+      label: 'Move to new Tab'
+    }
   ]
