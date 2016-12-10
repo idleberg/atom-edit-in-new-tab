@@ -1,18 +1,6 @@
 {CompositeDisposable} = require 'atom'
 
-# 3rd-party dependencies
-fs = require 'fs'
-path = require 'path'
-CSON = require 'cson'
-parseCson = require 'cson-parser'
-parseJson = require 'parse-json'
-
-# Atom = require './includes/atom'
-# SublimeText = require './includes/sublime-text'
-# TextMate = require './includes/textmate'
-# VsCode = require './includes/vscode'
-
-module.exports = Atomizr =
+module.exports = EditInNewTab =
   subscriptions: null
 
   activate: (state) ->
