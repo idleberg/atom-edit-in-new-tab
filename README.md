@@ -10,7 +10,7 @@ Opens the current selection in a new tab. Based on an idea by [Lea Verou](https:
 
 ![Screenshot](https://raw.github.com/idleberg/atom-edit-in-new-tab/master/screenshot.gif)
 
-*Screenshot of NSIS in Atom with [Hopscotch](https://atom.io/themes/hopscotch) theme*
+*Screenshot using [Hopscotch](https://atom.io/themes/hopscotch) theme*
 
 ## Installation
 
