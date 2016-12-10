@@ -1,0 +1,44 @@
+{
+  "name": "edit-in-new-tab",
+  "description": "Opens the current selection in a new tab",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Jan T. Sott",
+    "url": "http://github.com/idleberg"
+  },
+  "keywords": [
+    "conversion",
+    "convert",
+    "sublime text",
+    "textmate",
+    "visual studio code",
+    "vscode"
+  ],
+  "activationCommands": {
+    "atom-workspace": [
+      "selection:edit-in-new-tab"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idleberg/atom-atomizr.git"
+  },
+  "main": "./lib/edit-in-new-tab",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "devDependencies": {
+    "coffeelint-stylish": "^0.1.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-coffeelint": "^0.6.0",
+    "gulp-debug": "^3.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-jsonlint": "^1.1.2",
+    "gulp-lesshint": "^2.1.0",
+    "jshint": "^2.9.4"
+  },
+  "scripts": {
+    "test": "gulp lint"
+  }
+}

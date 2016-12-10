@@ -1,0 +1,2 @@
+'atom-text-editor':
+  'ctrl-shift-t': 'selection:edit-in-new-tab'

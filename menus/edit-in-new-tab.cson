@@ -1,0 +1,7 @@
+'context-menu':
+  'atom-text-editor': [
+    {
+      command: 'selection:edit-in-new-tab'
+      label: 'Edit in new Tab'
+    }
+  ]
