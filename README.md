@@ -44,14 +44,10 @@ $ yarn || npm install
 
 ## Usage
 
-This package provides several commands to edit the current selection in a new tab
+This package provides several commands in the command palette, the context menu or by using the keyboard shortcuts
 
-Action          | Shortcut                                                     | Description
-–---------------|--------------------------------------------------------------|-------------------------------------------
-Edit in New Tab | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>                | Edit current selection in new tab
-Move to New Tab | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | Cut current selection and paste to new tab
-
-Both commands are also available from the command palette and the context menu
+* **Edit in New Tab** – Edit current selection in new tab (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>) 
+* **Move to New Tab** – Cut current selection and paste to new tab (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>)
 
 ## License
 
