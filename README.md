@@ -40,7 +40,7 @@ $ yarn || npm install
 
 ## Usage
 
-The command *Selection: Edit In New Tab* can be triggered from the the command palette, the context menu, or using the keyboard shortcut <kbd>Ctrl></kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>. 
+The command *Selection: Edit In New Tab* can be triggered from the the command palette, the context menu, or using the keyboard shortcut <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>. 
 
 ## License
 
