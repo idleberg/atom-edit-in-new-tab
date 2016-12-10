@@ -44,7 +44,14 @@ $ yarn || npm install
 
 ## Usage
 
-The command *Selection: Edit In New Tab* can be triggered from the the command palette, the context menu, or using the keyboard shortcut <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>. 
+This package provides several commands to edit the current selection in a new tab
+
+Action          | Shortcut                                                     | Description
+–---------------|--------------------------------------------------------------|-------------------------------------------
+Edit in New Tab | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>                | Edit current selection in new tab
+Move to New Tab | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | Cut current selection and paste to new tab
+
+Both commands are also available from the command palette and the context menu
 
 ## License
 
