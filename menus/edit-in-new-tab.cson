@@ -5,7 +5,7 @@
       label: 'Edit in new Tab'
     }
     {
-      command: 'selection:cut-and-edit-in-new-tab'
-      label: 'Cut and edit in new Tab'
+      command: 'selection:move-to-new-tab'
+      label: 'Move to new Tab'
     }
   ]

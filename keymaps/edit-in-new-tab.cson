@@ -1,2 +1,2 @@
 'atom-text-editor':
-  'ctrl-shift-t': 'selection:cut-and-edit-in-new-tab'
+  'ctrl-shift-t': 'selection:move-to-new-tab'
