@@ -57,6 +57,7 @@ Option                 | Default | Description
 -----------------------|---------|--------------------------------------------------
 Synchronize Changes    | `false` | Writes changes in the new tab back to the origin
 Ignore Scope           | `false` | Doesn't apply the origin's grammar on the new tab
+Target Pane            | `null`  | Specifies the default pane for the new tab
 Select                 | `false` | Selects the newly added text
 Auto-indent            | `true`  | Indents all inserted text appropriately
 Auto-indent New Line   | `true`  | Indent newline appropriately

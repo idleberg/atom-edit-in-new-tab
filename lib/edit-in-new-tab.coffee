@@ -14,10 +14,23 @@ module.exports = EditInNewTab =
       type: "boolean"
       default: false
       order: 2
+    targetPane:
+      title: "Target Pane"
+      description: "Specifies the default pane for the new tab"
+      type: "string",
+      default: "",
+      enum: [
+        { value: "", description: "(default)"}
+        { value: 'up', description: 'Split Up'}
+        { value: 'down', description: 'Split Down'}
+        { value: 'left', description: 'Split Left'}
+        { value: 'right', description: 'Split Right'}
+      ]
+      order: 3
     outputFormat:
       title: "Output Format"
       type: 'object'
-      order: 3
+      order: 4
       properties:
         select:
           title: "Select"
@@ -78,7 +91,9 @@ module.exports = EditInNewTab =
     if cutSelection is true
       parentSelection.delete()
 
-    atom.workspace.open()
+    targetPane = atom.config.get('edit-in-new-tab.targetPane')
+
+    atom.workspace.open(null, { split: targetPane })
       .then (newTab) ->
         options =
           select: atom.config.get('edit-in-new-tab.outputFormat.select')
