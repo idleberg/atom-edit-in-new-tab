@@ -49,6 +49,21 @@ This package provides several commands in the command palette, the context menu 
 * **Edit in New Tab** – Edit current selection in new tab (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>) 
 * **Move to New Tab** – Cut current selection and paste to new tab (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>)
 
+## Settings
+
+It's well worth taking a look at the package settings, where you can tweak the default behaviour.
+
+Option                 | Default | Description
+-----------------------|---------|--------------------------------------------------
+Synchronize Changes    | `false` | Writes changes in the new tab back to the origin
+Ignore Scope           | `false` | Doesn't apply the origin's grammar on the new tab
+Select                 | `false` | Selects the newly added text
+Auto-indent            | `true`  | Indents all inserted text appropriately
+Auto-indent New Line   | `true`  | Indent newline appropriately
+Auto-decrease Indent   | `true`  | Decreases indent level appropriately
+Normalize Line Endings | `true`  | Normalizes line endings 
+
+
 ## License
 
 This work is licensed under the [The MIT License](LICENSE.md).
