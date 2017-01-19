@@ -2,45 +2,52 @@
 
 module.exports = EditInNewTab =
   config:
-    ignoreScope:
-      title: "Ignore Scope"
-      description: "Don't set the current scope in target tab"
+    synchronizeChanges:
+      title: "Synchronize Changes"
+      description: "Writes changes in the new tab back to the origin"
       type: "boolean"
       default: false
       order: 1
+    ignoreScope:
+      title: "Ignore Scope"
+      description: "Doesn't apply the origin's grammar on the new tab"
+      type: "boolean"
+      default: false
+      order: 2
     outputFormat:
       title: "Output Format"
       type: 'object'
+      order: 3
       properties:
         select:
           title: "Select"
           description: "Selects the newly added text"
           type: "boolean"
           default: false
-          order: 2
+          order: 1
         autoIndent:
           title: "Auto-indent"
           description: "Indents all inserted text appropriately"
           type: "boolean"
           default: true
-          order: 3
+          order: 2
         autoIndentNewline:
           title: "Auto-indent New Line"
-          description: "Indent newline appropriately"
+          description: "Indent new line appropriately"
           type: "boolean"
           default: true
-          order: 4
+          order: 3
         autoDecreaseIndent:
-          title: "Auto-decreate Indent"
+          title: "Auto-decrease Indent"
           description: "Decreases indent level appropriately (for example, when a closing bracket is inserted)"
           type: "boolean"
           default: true
-          order: 5
+          order: 4
         normalizeLineEndings:
           title: "Normalize Line Endings"
           type: "boolean"
           default: true
-          order: 6
+          order: 5
   subscriptions: null
 
   activate: (state) ->
@@ -57,17 +64,19 @@ module.exports = EditInNewTab =
   editInNewTab: (cutSelection) ->
     return unless editor = atom.workspace.getActiveTextEditor()
 
-    selection = editor.getLastSelection()
+    parentEditor = editor.id
+    parentSelection = editor.getLastSelection()
 
     target =
       scope: editor.getGrammar().scopeName
-      text: selection.getText()
+      text: parentSelection.getText()
 
     unless target.text.length > 0
       return atom.beep()
 
+    # Move to new Tab?
     if cutSelection is true
-      selection.delete()
+      parentSelection.delete()
 
     atom.workspace.open()
       .then (newTab) ->
@@ -79,7 +88,18 @@ module.exports = EditInNewTab =
           normalizeLineEndings: atom.config.get('edit-in-new-tab.outputFormat.normalizeLineEndings')
 
         newTab.insertText(target.text, options)
+
         unless atom.config.get('edit-in-new-tab.ignoreScope') is true
           newTab.setGrammar(atom.grammars.grammarForScopeName(target.scope))
+
+        if atom.config.get('edit-in-new-tab.synchronizeChanges') is true and cutSelection is false
+          childEditor = atom.workspace.getActiveTextEditor().id
+
+          atom.workspace.observeTextEditors (editor) =>
+            return unless editor.id is childEditor
+
+            editor.onDidStopChanging =>
+              parentSelection.insertText(editor.getText(), { select: true })
+
       .catch (error) ->
         atom.notifications.addError(error, dismissable: true)
