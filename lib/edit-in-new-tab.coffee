@@ -1,5 +1,4 @@
 {CompositeDisposable} = require 'atom'
-meta = require '../package.json'
 
 module.exports = EditInNewTab =
   config:
@@ -122,4 +121,4 @@ module.exports = EditInNewTab =
         atom.notifications.addError(error, dismissable: true)
 
   openSettings: ->
-    atom.workspace.open("atom://config/packages/#{meta.name}")
+    atom.workspace.open("atom://config/packages/edit-in-new-tab")
