@@ -21,7 +21,7 @@ module.exports = EditInNewTab =
       type: "string",
       default: "",
       enum: [
-        { value: "", description: "(default)"}
+        { value: "", description: "(same pane)"}
         { value: 'up', description: 'Split Up'}
         { value: 'down', description: 'Split Down'}
         { value: 'left', description: 'Split Left'}
