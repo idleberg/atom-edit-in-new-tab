@@ -1,11 +1,11 @@
 'context-menu':
   'atom-text-editor': [
     {
-      command: 'selection:edit-in-new-tab'
+      command: 'edit-in-new-tab:copy-selection'
       label: 'Edit in new Tab'
     }
     {
-      command: 'selection:move-to-new-tab'
+      command: 'edit-in-new-tab:move-selection'
       label: 'Move to new Tab'
     }
   ]

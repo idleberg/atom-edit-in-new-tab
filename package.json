@@ -14,8 +14,9 @@
   ],
   "activationCommands": {
     "atom-workspace": [
-      "selection:edit-in-new-tab",
-      "selection:move-to-new-tab"
+      "edit-in-new-tab:copy-selection",
+      "edit-in-new-tab:move-selection",
+      "edit-in-new-tab:open-package-settings"
     ]
   },
   "repository": {
