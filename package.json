@@ -16,7 +16,7 @@
     "atom-workspace": [
       "edit-in-new-tab:copy-selection",
       "edit-in-new-tab:move-selection",
-      "edit-in-new-tab:open-package-settings"
+      "edit-in-new-tab:settings"
     ]
   },
   "repository": {

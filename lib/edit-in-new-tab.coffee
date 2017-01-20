@@ -71,7 +71,7 @@ module.exports = EditInNewTab =
     # Register commands
     @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:copy-selection': => @editInNewTab(false)
     @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:move-selection': => @editInNewTab(true)
-    @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:open-package-settings': => @openSettings()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:settings': => @openSettings()
 
   deactivate: ->
     @subscriptions.dispose()
