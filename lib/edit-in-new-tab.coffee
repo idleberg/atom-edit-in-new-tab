@@ -111,10 +111,10 @@ module.exports = EditInNewTab =
         if atom.config.get('edit-in-new-tab.synchronizeChanges') is true and cutSelection is false
           childEditor = atom.workspace.getActiveTextEditor().id
 
-          atom.workspace.observeTextEditors (editor) =>
+          atom.workspace.observeTextEditors (editor) ->
             return unless editor.id is childEditor
 
-            editor.onDidChange =>
+            editor.onDidChange ->
               parentSelection.insertText(editor.getText(), { select: true })
 
       .catch (error) ->
