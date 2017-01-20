@@ -56,7 +56,7 @@ It's well worth taking a look at the package settings, where you can tweak the d
 
 Option                 | Default | Description
 -----------------------|---------|--------------------------------------------------
-Synchronize Changes    | `false` | Writes changes in the new tab back to the origin
+Synchronize Changes    | `false` | Writes changes in the new tab back to the origin¹
 Ignore Scope           | `false` | Doesn't apply the origin's grammar on the new tab
 Target Pane            | –       | Specifies the default pane for the new tab
 Select                 | `false` | Selects the newly added text
@@ -65,6 +65,7 @@ Auto-indent New Line   | `true`  | Indent newline appropriately
 Auto-decrease Indent   | `true`  | Decreases indent level appropriately
 Normalize Line Endings | `true`  | Normalizes line endings 
 
+¹ [see it in action](https://twitter.com/idleberg/status/822193943362359297)
 
 ## License
 
