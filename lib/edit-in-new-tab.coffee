@@ -1,4 +1,5 @@
 {CompositeDisposable} = require 'atom'
+meta = require '../package.json'
 
 module.exports = EditInNewTab =
   config:
@@ -68,8 +69,9 @@ module.exports = EditInNewTab =
     @subscriptions = new CompositeDisposable
 
     # Register commands
-    @subscriptions.add atom.commands.add 'atom-workspace', 'selection:edit-in-new-tab': => @editInNewTab(false)
-    @subscriptions.add atom.commands.add 'atom-workspace', 'selection:move-to-new-tab': => @editInNewTab(true)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:copy-selection': => @editInNewTab(false)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:move-selection': => @editInNewTab(true)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:open-package-settings': => @openSettings()
 
   deactivate: ->
     @subscriptions.dispose()
@@ -118,3 +120,6 @@ module.exports = EditInNewTab =
 
       .catch (error) ->
         atom.notifications.addError(error, dismissable: true)
+
+  openSettings: ->
+    atom.workspace.open("atom://config/packages/#{meta.name}")
