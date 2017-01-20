@@ -46,8 +46,9 @@ $ yarn || npm install
 
 This package provides several commands in the command palette, the context menu or by using the keyboard shortcuts
 
-* **Edit in New Tab** – Edit current selection in new tab (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>) 
-* **Move to New Tab** – Cut current selection and paste to new tab (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>)
+* **Edit in New Tab: Copy Selection** – Edit current selection in new tab (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>) 
+* **Edit in New Tab: Move Selection** – Cut current selection and paste to new tab (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>)
+* **Edit in New Tab: Settings** – Open the settings pane for this package
 
 ## Settings
 
