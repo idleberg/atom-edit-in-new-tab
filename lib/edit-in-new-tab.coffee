@@ -111,9 +111,7 @@ module.exports = EditInNewTab =
           childEditor = atom.workspace.getActiveTextEditor()
 
           atom.workspace.observeTextEditors (editor) ->
-            return unless editor.id is childEditor.id
-
-            editor.onDidChange ->
+            childEditor.onDidChange ->
               parentSelection.insertText(editor.getText(), { select: true })
 
       .catch (error) ->
