@@ -76,13 +76,12 @@ module.exports = EditInNewTab =
     @subscriptions.dispose()
 
   editInNewTab: (cutSelection) ->
-    return unless editor = atom.workspace.getActiveTextEditor()
+    return unless parentEditor = atom.workspace.getActiveTextEditor()
 
-    parentEditor = editor.id
-    parentSelection = editor.getLastSelection()
+    parentSelection = parentEditor.getLastSelection()
 
     target =
-      scope: editor.getGrammar().scopeName
+      scope: parentEditor.getGrammar().scopeName
       text: parentSelection.getText()
 
     unless target.text.length > 0
@@ -109,10 +108,10 @@ module.exports = EditInNewTab =
           newTab.setGrammar(atom.grammars.grammarForScopeName(target.scope))
 
         if atom.config.get('edit-in-new-tab.synchronizeChanges') is true and cutSelection is false
-          childEditor = atom.workspace.getActiveTextEditor().id
+          childEditor = atom.workspace.getActiveTextEditor()
 
           atom.workspace.observeTextEditors (editor) ->
-            return unless editor.id is childEditor
+            return unless editor.id is childEditor.id
 
             editor.onDidChange ->
               parentSelection.insertText(editor.getText(), { select: true })
