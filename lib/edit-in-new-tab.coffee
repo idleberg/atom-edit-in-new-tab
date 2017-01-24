@@ -6,7 +6,7 @@ module.exports = EditInNewTab =
       title: "Synchronize Changes"
       description: "Writes changes in the new tab back to the origin"
       type: "boolean"
-      default: false
+      default: true
       order: 1
     ignoreScope:
       title: "Ignore Scope"
@@ -111,6 +111,9 @@ module.exports = EditInNewTab =
           childEditor = atom.workspace.getActiveTextEditor()
 
           atom.workspace.observeTextEditors (editor) ->
+            # makes sure tabs don't get mixed up
+            return unless editor.id is childEditor.id
+
             childEditor.onDidChange ->
               parentSelection.insertText(editor.getText(), { select: true })
 
