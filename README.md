@@ -56,7 +56,7 @@ It's well worth taking a look at the package settings, where you can tweak the d
 
 Option                 | Default | Description
 -----------------------|---------|--------------------------------------------------
-Synchronize Changes    | `false` | Writes changes in the new tab back to the origin¹
+Synchronize Changes    | `true` | Writes changes in the new tab back to the origin¹
 Target Pane            | `null`  | Specifies the default pane for the new tab
 Ignore Scope           | `false` | Doesn't apply the origin's grammar on the new tab
 Select                 | `false` | Selects the newly added text
