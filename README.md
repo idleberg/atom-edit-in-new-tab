@@ -55,9 +55,10 @@ This package provides several commands in the command palette, the context menu 
 It's well worth taking a look at the package settings, where you can tweak the default behaviour.
 
 Option                 | Default | Description
------------------------|---------|--------------------------------------------------
+-----------------------|---------|--------------------------------------------------------
 Synchronize Changes    | `true`  | Writes changes in the new tab back to the origin¹
 Target Pane            | `null`  | Specifies the default pane for the new tab
+Auto-Indent Origin     | `null`  | Auto indent changes written back to the originating tab
 Ignore Scope           | `false` | Doesn't apply the origin's grammar on the new tab
 Select                 | `false` | Selects the newly added text
 Auto-indent            | `true`  | Indents all inserted text appropriately
