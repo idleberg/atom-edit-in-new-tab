@@ -22,8 +22,8 @@ module.exports = EditInNewTab =
       ]
       order: 2
     indentOrigin:
-      title: "Auto-Indent Origin"
-      description: "Auto indent changes written back to the originating tab"
+      title: "Auto-indent Origin"
+      description: "Auto-indent changes written back to the originating tab"
       type: "boolean"
       default: false
       order: 3
