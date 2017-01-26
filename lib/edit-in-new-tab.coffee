@@ -123,7 +123,7 @@ module.exports = EditInNewTab =
             childEditor.onDidChange ->
               parentSelection.insertText(editor.getText(), { select: true })
 
-              if atom.config.get('edit-in-new-tab.synchronizeChanges') is true and atom.config.get('edit-in-new-tab.indentOrigin') is true
+              if atom.config.get('edit-in-new-tab.indentOrigin') is true
                 atom.commands.dispatch(atom.views.getView(parentEditor), 'editor:auto-indent')
 
       .catch (error) ->
