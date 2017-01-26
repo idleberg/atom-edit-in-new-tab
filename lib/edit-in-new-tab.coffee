@@ -8,12 +8,6 @@ module.exports = EditInNewTab =
       type: "boolean"
       default: true
       order: 1
-    ignoreScope:
-      title: "Ignore Scope"
-      description: "Doesn't apply the origin's grammar on the new tab"
-      type: "boolean"
-      default: false
-      order: 2
     targetPane:
       title: "Target Pane"
       description: "Specifies the default pane for the new tab"
@@ -26,11 +20,23 @@ module.exports = EditInNewTab =
         { value: 'left', description: 'Split Left'}
         { value: 'right', description: 'Split Right'}
       ]
+      order: 2
+    indentOrigin:
+      title: "Indent Origin"
+      description: "Auto indent changes written back to origin"
+      type: "boolean"
+      default: false
       order: 3
-    outputFormat:
-      title: "Output Format"
-      type: 'object'
+    ignoreScope:
+      title: "Ignore Scope"
+      description: "Doesn't apply the origin's grammar on the new tab"
+      type: "boolean"
+      default: false
       order: 4
+    outputFormat:
+      title: "Formatting Options"
+      type: 'object'
+      order: 5
       properties:
         select:
           title: "Select"
@@ -116,6 +122,9 @@ module.exports = EditInNewTab =
 
             childEditor.onDidChange ->
               parentSelection.insertText(editor.getText(), { select: true })
+
+              if atom.config.get('edit-in-new-tab.synchronizeChanges') is true and atom.config.get('edit-in-new-tab.indentOrigin') is true
+                atom.commands.dispatch(atom.views.getView(parentEditor), 'editor:auto-indent')
 
       .catch (error) ->
         atom.notifications.addError(error, dismissable: true)
