@@ -60,6 +60,7 @@ Synchronize Changes    | `true`  | Writes changes in the new tab back to the ori
 Target Pane            | `null`  | Specifies the default pane for the new tab
 Auto-indent Origin     | `false` | Auto indent changes written back to the originating tab
 Ignore Scope           | `false` | Doesn't apply the origin's grammar on the new tab
+Default Tab-name       | `null`  | Define a default scheme for new tabs
 Select                 | `false` | Selects the newly added text
 Auto-indent            | `true`  | Indents all inserted text appropriately
 Auto-indent New Line   | `true`  | Indent newline appropriately

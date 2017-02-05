@@ -41,7 +41,7 @@ module.exports = EditInNewTab =
       order: 4
     defaultTabName:
       title: "Default Tab-name"
-      description: "Define a default scheme for new tabs. Accept`%origin%` placeholder for original's file-name"
+      description: "Define a default scheme for new tabs. Accepts `%origin%` placeholder for the original's file-name"
       type: "string"
       default: ""
       order: 5
