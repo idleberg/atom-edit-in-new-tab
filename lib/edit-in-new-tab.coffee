@@ -1,5 +1,11 @@
 {CompositeDisposable} = require 'atom'
 
+String::replaceAll = (search, replacement) ->
+  # Kudos http://stackoverflow.com/a/17606289
+  #
+  target = this
+  target.replace new RegExp(search, 'g'), replacement
+
 module.exports = EditInNewTab =
   config:
     synchronizeChanges:
@@ -33,10 +39,16 @@ module.exports = EditInNewTab =
       type: "boolean"
       default: false
       order: 4
+    defaultTabName:
+      title: "Default Tab-name"
+      description: "Define a default scheme for new tabs. Accept`%origin%` placeholder for original's file-name"
+      type: "string"
+      default: ""
+      order: 5
     outputFormat:
       title: "Formatting Options"
       type: 'object'
-      order: 5
+      order: 6
       properties:
         select:
           title: "Select"
@@ -71,9 +83,11 @@ module.exports = EditInNewTab =
 
   activate: (state) ->
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
+    #
     @subscriptions = new CompositeDisposable
 
     # Register commands
+    #
     @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:copy-selection': => @editInNewTab(false)
     @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:move-selection': => @editInNewTab(true)
     @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:settings': => @openSettings()
@@ -94,12 +108,19 @@ module.exports = EditInNewTab =
       return atom.beep()
 
     # Move to new Tab?
+    #
     if cutSelection is true
       parentSelection.delete()
 
     targetPane = atom.config.get('edit-in-new-tab.targetPane')
+    defaultTabName = atom.config.get('edit-in-new-tab.defaultTabName')
 
-    atom.workspace.open(null, { split: targetPane })
+    if not defaultTabName
+      newTabname = null
+    else
+      newTabName = defaultTabName.replaceAll("%origin%", atom.workspace.getActiveTextEditor().getFileName().toString())
+
+    atom.workspace.open(newTabName, { split: targetPane })
       .then (newTab) ->
         options =
           select: atom.config.get('edit-in-new-tab.outputFormat.select')
@@ -118,6 +139,7 @@ module.exports = EditInNewTab =
 
           atom.workspace.observeTextEditors (editor) ->
             # makes sure tabs don't get mixed up
+            #
             return unless editor.id is childEditor.id
 
             childEditor.onDidChange ->
