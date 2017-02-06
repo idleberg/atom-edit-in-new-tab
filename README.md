@@ -68,7 +68,7 @@ Auto-decrease Indent   | `true`  | Decreases indent level appropriately
 Normalize Line Endings | `true`  | Normalizes line endings 
 
 ¹ [see it in action](https://twitter.com/idleberg/status/822193943362359297)  
-² accepts placeholders `file`, `id`, and `count`  
+² accepts placeholders `%file%`, `%id%`, and `%count%`  
 
 ## License
 
