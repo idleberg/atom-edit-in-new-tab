@@ -57,10 +57,10 @@ It's well worth taking a look at the package settings, where you can tweak the d
 Option                 | Default | Description
 -----------------------|---------|--------------------------------------------------------
 Synchronize Changes    | `true`  | Writes changes in the new tab back to the origin¹
-Target Pane            | `null`  | Specifies the default pane for the new tab
+Target Pane            |         | Specifies the default pane for the new tab
 Auto-indent Origin     | `false` | Auto indent changes written back to the originating tab
 Ignore Scope           | `false` | Doesn't apply the origin's grammar on the new tab
-Default Tab-name       | `null`  | Define a default scheme for new tabs
+Default Tab-name       |         | Define a default scheme for new tabs²
 Select                 | `false` | Selects the newly added text
 Auto-indent            | `true`  | Indents all inserted text appropriately
 Auto-indent New Line   | `true`  | Indent newline appropriately
@@ -68,6 +68,7 @@ Auto-decrease Indent   | `true`  | Decreases indent level appropriately
 Normalize Line Endings | `true`  | Normalizes line endings 
 
 ¹ [see it in action](https://twitter.com/idleberg/status/822193943362359297)
+² accepts placeholders `file`, `id`, and `count`
 
 ## License
 
