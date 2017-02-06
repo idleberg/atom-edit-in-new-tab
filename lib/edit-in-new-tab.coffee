@@ -41,7 +41,7 @@ module.exports = EditInNewTab =
       order: 4
     defaultTabName:
       title: "Default Tab-name"
-      description: "Define a default scheme for new tabs. Accepts `%origin%` placeholder for the original's file-name"
+      description: "Define a default scheme for new tabs. Available placeholders: `%file%` for file-name, `%id%` for editor ID, and `%count%` to count tabs"
       type: "string"
       default: ""
       order: 5
@@ -80,6 +80,7 @@ module.exports = EditInNewTab =
           default: true
           order: 5
   subscriptions: null
+  counter: 0
 
   activate: (state) ->
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
@@ -114,11 +115,15 @@ module.exports = EditInNewTab =
 
     targetPane = atom.config.get('edit-in-new-tab.targetPane')
     defaultTabName = atom.config.get('edit-in-new-tab.defaultTabName')
+    @counter += 1
 
     if not defaultTabName
       newTabname = null
     else
-      newTabName = defaultTabName.replaceAll("%origin%", atom.workspace.getActiveTextEditor().getFileName().toString())
+      newTabName = defaultTabName
+                    .replaceAll("%file%", atom.workspace.getActiveTextEditor().getFileName().toString())
+                    .replaceAll("%id%", parentEditor.id)
+                    .replaceAll("%count%", @counter)
 
     atom.workspace.open(newTabName, { split: targetPane })
       .then (newTab) ->
