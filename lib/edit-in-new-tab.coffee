@@ -1,4 +1,5 @@
 {CompositeDisposable} = require 'atom'
+{basename, extname} = require 'path'
 
 String::replaceAll = (search, replacement) ->
   # Kudos http://stackoverflow.com/a/17606289
@@ -120,10 +121,16 @@ module.exports = EditInNewTab =
     if not defaultTabName
       newTabname = null
     else
-      newTabName = defaultTabName
-                    .replaceAll("%file%", atom.workspace.getActiveTextEditor().getFileName().toString())
-                    .replaceAll("%id%", parentEditor.id)
-                    .replaceAll("%count%", @counter)
+      fileName = atom.workspace.getActiveTextEditor().getFileName().toString()
+      fileExt = extname(fileName)
+      fileBase = basename(fileName, fileExt)
+
+      saneName = defaultTabName
+                  .replaceAll("%file%", fileBase)
+                  .replaceAll("%id%", parentEditor.id)
+                  .replaceAll("%count%", @counter)
+
+      newTabName = "#{saneName}#{fileExt}"
 
     atom.workspace.open(newTabName, { split: targetPane })
       .then (newTab) ->
