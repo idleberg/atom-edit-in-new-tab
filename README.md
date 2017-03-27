@@ -8,9 +8,13 @@
 
 Opens the current selection in a new tab. Based on an idea by [Lea Verou](https://twitter.com/LeaVerou/status/807287092493553665).
 
-![Screenshot](https://raw.github.com/idleberg/atom-edit-in-new-tab/master/screenshot.gif)
+![Screenshot](https://raw.github.com/idleberg/atom-edit-in-new-tab/master/screenshot-1.gif)
 
-*Screenshot using [Hopscotch](https://atom.io/themes/hopscotch) theme*
+*Edit selection in a new tab*
+
+![Screenshot](https://raw.github.com/idleberg/atom-edit-in-new-tab/master/screenshot-2.gif)
+
+*Edit in new tab and write changes back to origin*
 
 ## Installation
 
