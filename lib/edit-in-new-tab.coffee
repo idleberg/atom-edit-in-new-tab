@@ -1,9 +1,5 @@
-{CompositeDisposable} = require 'atom'
-{basename, extname} = require 'path'
-
+# Kudos http://stackoverflow.com/a/17606289
 String::replaceAll = (search, replacement) ->
-  # Kudos http://stackoverflow.com/a/17606289
-  #
   target = this
   target.replace new RegExp(search, 'g'), replacement
 
@@ -84,6 +80,8 @@ module.exports = EditInNewTab =
   counter: 0
 
   activate: (state) ->
+    {CompositeDisposable} = require 'atom'
+
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     #
     @subscriptions = new CompositeDisposable
@@ -121,6 +119,8 @@ module.exports = EditInNewTab =
     if not defaultTabName
       newTabname = null
     else
+      {basename, extname} = require 'path'
+
       fileName = atom.workspace.getActiveTextEditor().getFileName().toString()
       fileExt = extname(fileName)
       fileBase = basename(fileName, fileExt)
