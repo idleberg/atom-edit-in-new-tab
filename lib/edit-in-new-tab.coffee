@@ -164,4 +164,4 @@ module.exports = EditInNewTab =
         atom.notifications.addError(error, dismissable: true)
 
   openSettings: ->
-    atom.workspace.open("atom://config/packages/edit-in-new-tab")
+    atom.workspace.open("atom://config/packages/edit-in-new-tab", {pending: true, searchAllPanes: true})
