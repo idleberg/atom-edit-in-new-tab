@@ -1,7 +1,7 @@
 {
   "name": "edit-in-new-tab",
   "description": "Opens the current selection in a new tab, optionally writes back the changes to the origin",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "license": "MIT",
   "author": {
     "name": "Jan T. Sott",
