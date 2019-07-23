@@ -1,10 +1,10 @@
 # edit-in-new-tab
 
-[![apm](https://img.shields.io/apm/l/edit-in-new-tab.svg?style=flat-square)](https://atom.io/packages/edit-in-new-tab)
-[![apm](https://img.shields.io/apm/v/edit-in-new-tab.svg?style=flat-square)](https://atom.io/packages/edit-in-new-tab)
-[![apm](https://img.shields.io/apm/dm/edit-in-new-tab.svg?style=flat-square)](https://atom.io/packages/edit-in-new-tab)
-[![Travis](https://img.shields.io/travis/idleberg/atom-edit-in-new-tab.svg?style=flat-square)](https://travis-ci.org/idleberg/atom-edit-in-new-tab)
-[![David](https://img.shields.io/david/dev/idleberg/atom-edit-in-new-tab.svg?style=flat-square)](https://david-dm.org/idleberg/atom-edit-in-new-tab?type=dev)
+[![apm](https://flat.badgen.net/apm/license/edit-in-new-tab)](https://atom.io/packages/edit-in-new-tab)
+[![apm](https://flat.badgen.net/apm/v/edit-in-new-tab)](https://atom.io/packages/edit-in-new-tab)
+[![apm](https://flat.badgen.net/apm/dl/edit-in-new-tab)](https://atom.io/packages/edit-in-new-tab)
+[![CircleCI](https://flat.badgen.net/circleci/github/idleberg/atom-edit-in-new-tab)](https://circleci.com/gh/idleberg/atom-edit-in-new-tab)
+[![David](https://flat.badgen.net/david/dep/idleberg/atom-edit-in-new-tab)](https://david-dm.org/idleberg/atom-edit-in-new-tab)
 
 Opens the current selection in a new tab. Based on an idea by [Lea Verou](https://twitter.com/LeaVerou/status/807287092493553665).
 
