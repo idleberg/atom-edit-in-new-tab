@@ -1,0 +1,47 @@
+version: 2.1
+
+commands:
+  run-tests:
+    steps:
+      - checkout
+      - run:
+          name: Installing NSIS
+          command: 'sudo apt-get update; sudo apt-get install nsis'
+      - run:
+          name: Print versions
+          command: |
+            node --version
+            yarn --version
+            makensis -VERSION
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Installing Dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Linting Source
+          command: npm run lint
+
+jobs:
+  node-latest:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - run-tests
+
+  node-lts:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - run-tests
+
+workflows:
+  node-multi-build:
+    jobs:
+    - node-latest
+    - node-lts
+  version: 2
