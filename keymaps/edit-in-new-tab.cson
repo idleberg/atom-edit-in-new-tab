@@ -1,3 +1,2 @@
 'atom-text-editor':
   'ctrl-shift-t': 'edit-in-new-tab:copy-selection'
-  'ctrl-alt-shift-t': 'edit-in-new-tab:move-selection'

@@ -89,13 +89,12 @@ module.exports = EditInNewTab =
     # Register commands
     #
     @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:copy-selection': => @editInNewTab(false)
-    @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:move-selection': => @editInNewTab(true)
     @subscriptions.add atom.commands.add 'atom-workspace', 'edit-in-new-tab:settings': => @openSettings()
 
   deactivate: ->
     @subscriptions.dispose()
 
-  editInNewTab: (cutSelection) ->
+  editInNewTab: () ->
     return unless parentEditor = atom.workspace.getActiveTextEditor()
 
     parentSelection = parentEditor.getLastSelection()
@@ -106,11 +105,6 @@ module.exports = EditInNewTab =
 
     unless target.text.length > 0
       return atom.beep()
-
-    # Move to new Tab?
-    #
-    if cutSelection is true
-      parentSelection.delete()
 
     targetPane = atom.config.get('edit-in-new-tab.targetPane')
     defaultTabName = atom.config.get('edit-in-new-tab.defaultTabName')
@@ -146,7 +140,7 @@ module.exports = EditInNewTab =
         unless atom.config.get('edit-in-new-tab.ignoreScope') is true
           newTab.setGrammar(atom.grammars.grammarForScopeName(target.scope))
 
-        if atom.config.get('edit-in-new-tab.synchronizeChanges') is true and cutSelection is false
+        if atom.config.get('edit-in-new-tab.synchronizeChanges') is true
           childEditor = atom.workspace.getActiveTextEditor()
 
           atom.workspace.observeTextEditors (editor) ->

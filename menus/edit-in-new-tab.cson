@@ -4,8 +4,4 @@
       command: 'edit-in-new-tab:copy-selection'
       label: 'Edit in new Tab'
     }
-    {
-      command: 'edit-in-new-tab:move-selection'
-      label: 'Move to new Tab'
-    }
   ]
